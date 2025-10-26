@@ -1,4 +1,4 @@
-.PHONY: build install share connect format commit
+.PHONY: build install share connect fmt commit
 
 build:
 	go build -o bin/shareo ./cmd/shareo
@@ -12,8 +12,8 @@ share:
 connect:
 	go run ./cmd/shareo connect -p 3372
 
-format:
+fmt:
 	go fmt ./...
 
 commit:
-	make format && git add . && git commit -F -
+	make fmt && git add . && git commit -F -
