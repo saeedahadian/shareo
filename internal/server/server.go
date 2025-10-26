@@ -8,6 +8,13 @@ import (
 )
 
 func Start(path string, port int) {
+	dir, err := os.Open(path)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		os.Exit(1)
+	}
+	defer dir.Close()
+
 	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
 		fmt.Println(err)
