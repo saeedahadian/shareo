@@ -23,6 +23,6 @@ func handleConn(conn net.Conn) {
 }
 
 func close(conn net.Conn) {
-	fmt.Printf("Exited %s\n", conn.RemoteAddr().String())
+	fmt.Printf("\033[31mExited\033[0m %s\n", conn.RemoteAddr().String())
 	conn.Close()
 }

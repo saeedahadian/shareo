@@ -21,7 +21,7 @@ func Start(port int) {
 			continue
 		}
 
-		fmt.Printf("Accepted %s\n", conn.RemoteAddr().String())
+		fmt.Printf("\033[32mAccepted\033[0m %s\n", conn.RemoteAddr().String())
 		go handleConn(conn)
 	}
 }
