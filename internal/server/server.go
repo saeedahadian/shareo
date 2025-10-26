@@ -4,15 +4,16 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"path/filepath"
 )
 
-func Start(port int) {
+func Start(path string, port int) {
 	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	fmt.Printf("Sharing server listening on :%d\n", port)
+	fmt.Printf("\033[33mShared\033[0m /%s on :%d\n", filepath.Base(path), port)
 
 	for {
 		conn, err := listener.Accept()
