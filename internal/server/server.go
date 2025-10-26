@@ -21,9 +21,7 @@ func Start(port int) {
 			continue
 		}
 
-		fmt.Println(conn.LocalAddr().String())
-		fmt.Println(conn.RemoteAddr().String())
-		fmt.Println("Accepted ")
+		fmt.Printf("Accepted %s\n", conn.RemoteAddr().String())
 		go handleConn(conn)
 	}
 }
