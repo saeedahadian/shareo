@@ -1,4 +1,4 @@
-.PHONY: build install share connect fmt commit
+.PHONY: build install share connect fmt commit debug
 
 build:
 	go build -o bin/shareo ./cmd/shareo
@@ -17,3 +17,6 @@ fmt:
 
 commit:
 	make fmt && git add . && git commit -F -
+
+debug:
+	go run ./cmd/shareo debug
